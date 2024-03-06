@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Task;
 
 class CategoryController extends Controller
 {
@@ -14,11 +16,18 @@ class CategoryController extends Controller
     }
     public function showDetails($id)
     {
-    // Logic to retrieve category details based on $id
-    $category = Category::find($id);
+        //retrieve category and task details 
+        $category = Category::findOrFail($id);
+        
+        $tasks = Task::where('category_id', $id)->get();
 
-    // Pass the category details to the view
-    return view('category_details', ['category' => $category]);
+        // Pass the category details to the view
+        return view('category_details', [
+        'category' => $category,
+       
+        'tasks'=> $tasks
+                                    ]);
+
     }
 
 }

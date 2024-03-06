@@ -9,8 +9,12 @@ class Category extends Model
     protected $fillable = ['title', 'img'];
     public function tasks()
     {
-        return $this->belongsToMany(User::class);
+        
         return $this->hasMany(Task::class);
         
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

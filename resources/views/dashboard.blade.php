@@ -30,6 +30,7 @@
         <div class="categories-wrapper">
             <h1>Categories</h1>
             <div class="categories">
+
                 @foreach($categories as $category)
                      
                     <a href="{{ route('category_details', ['id' => $category->id]) }}">

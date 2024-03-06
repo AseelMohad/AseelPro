@@ -209,12 +209,13 @@ background-color:#fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 1rem;
 }
 
 .category-screen .head-wrapper svg {
     width: 2rem;
     cursor: pointer;
-    color: #fff;
+    color: #040404;
 }
 
 .category-details {
